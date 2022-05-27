@@ -9,11 +9,13 @@ public class EdenCord extends JavaPlugin {
     @Override
     public void onEnable() {
         getLogger().info("EdenCord enabled!");
-        final DiscordService api = Bukkit.getServicesManager().load(DiscordService.class);
-        try {
-            api.getInteractionController().registerCommand(new StatusCommand());
-        } catch (InteractionException e) {
-            e.printStackTrace();
+        DiscordService api = Bukkit.getServicesManager().load(DiscordService.class);
+        if (api != null) {
+            try {
+                api.getInteractionController().registerCommand(new StatusCommand());
+            } catch (InteractionException e) {
+                e.printStackTrace();
+            }
         }
     }
 
