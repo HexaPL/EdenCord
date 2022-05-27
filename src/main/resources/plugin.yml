@@ -1,8 +1,5 @@
 name: EdenCord
 version: 1.0
 author: Hexa
-main: com.github.hexa.babadiscord.EdenCord
+main: com.github.hexa.edencord.EdenCord
 api-version: 1.16
-commands:
-  dcbroadcast:
-    description: Discord broadcast
