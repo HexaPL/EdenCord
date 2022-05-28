@@ -12,7 +12,9 @@ public class StatusCommand implements InteractionCommand {
     @Override
     public void onCommand(InteractionEvent event) {
         int playerCount = Bukkit.getOnlinePlayers().size();
-        event.reply("Na serwerze jest obecnie " + playerCount + " graczy.");
+        String statusMessage = EdenCord.getInstance().getConfig().getString("status-message");
+        String[] statusMessageSplit = statusMessage.split("%player_count%", 2);
+        event.reply(statusMessageSplit[0] + playerCount + statusMessageSplit[1]);
     }
 
     @Override
